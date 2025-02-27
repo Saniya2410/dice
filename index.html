@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dice Roller</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #0f151a;
+            font-family: Arial, sans-serif;
+            color: white;
+        }
+        .dice-container {
+            width: 250px;
+            height: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #ECF0F1;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            transition: transform 0.5s ease-in-out;
+        }
+        .dice-container img {
+            width: 200px;
+            height: 200px;
+        }
+        .roll-btn {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 18px;
+            background: #E74C3C;
+            border: none;
+            color: white;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .roll-btn:hover {
+            background:  #f77769;
+        }
+    </style>
+</head>
+<body>
+    <div class="dice-container" id="diceContainer">
+        <img id="dice" src="./img/dice.jpg" alt="Dice">
+    </div>
+    <button class="roll-btn" onclick="rollDice()">Roll The Dice</button>
+
+    <script>
+        function rollDice() {
+            const diceImages = [
+                 "./img/dice1.png",
+                  "./img/dice2.jpg", 
+                  "./img/dic3.png", 
+                  "./img/dice4.jpg",
+                "./img/dice5.png",
+                 "./img/dice6.png"
+            ];
+            let diceContainer = document.getElementById("diceContainer");
+            let diceImg = document.getElementById("dice");
+            
+            diceContainer.style.transform = "rotate(360deg)";
+            setTimeout(() => {
+                const randomIndex = Math.floor(Math.random() * 6);
+                diceImg.src = diceImages[randomIndex];
+                diceContainer.style.transform = "rotate(0deg)";
+             }, 500);
+        }
+    </script>
+</body>
+</html>
